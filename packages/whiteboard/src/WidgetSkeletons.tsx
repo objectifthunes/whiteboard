@@ -29,21 +29,17 @@ export function PanelFormSkeleton({ inputs = 1, showButton = true, className, ..
 
 export function StoryCardSkeleton() {
   return (
-    <article className="story-card">
-      <div className="story-cover">
-        <div className="story-cover__placeholder story-cover__placeholder--skeleton" />
-      </div>
-      <div className="story-card__overlay story-card__overlay--skeleton">
-        <div className="story-card__overlay-text">
-          <Inline as="header">
-            <ChipSkeleton />
-            <ChipSkeleton />
-          </Inline>
-          <TitleSkeleton />
-          <LineSkeleton short />
-        </div>
-      </div>
-    </article>
+    <ItemCard>
+      <Stack size="sm">
+        <ThumbSkeleton />
+        <Inline as="header">
+          <ChipSkeleton />
+          <ChipSkeleton />
+        </Inline>
+        <TitleSkeleton />
+        <LineSkeleton short />
+      </Stack>
+    </ItemCard>
   )
 }
 
@@ -83,7 +79,7 @@ export function AssetCardSkeleton() {
   return (
     <ItemCard as="li">
       <Stack size="sm">
-        <ThumbSkeleton className="asset-thumb" />
+        <ThumbSkeleton />
         <TitleSkeleton />
         <TagRow>
           <ChipSkeleton />
@@ -110,7 +106,7 @@ export function PickerGridSkeleton({ count = 8, gridClass }: PickerGridSkeletonP
         <li key={`picker-skeleton-${i}`}>
           <PickerCard as="div" className="picker-card--skeleton">
             <Stack size="sm">
-              <ThumbSkeleton className="asset-thumb" />
+              <ThumbSkeleton />
               <LineSkeleton short />
             </Stack>
           </PickerCard>

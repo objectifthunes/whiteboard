@@ -81,8 +81,8 @@ export function WhiteboardShell({ children, showMinimap = true, minimapLoading =
 
   const onMove = useCallback((e: PointerEvent) => {
     if (!panning.current || activePointerId.current !== e.pointerId) return
-    const dx = e.movementX ?? e.clientX - last.current.x
-    const dy = e.movementY ?? e.clientY - last.current.y
+    const dx = e.movementX ?? (e.clientX - last.current.x)
+    const dy = e.movementY ?? (e.clientY - last.current.y)
     setOffset(p => ({ x: p.x + dx, y: p.y + dy }))
     last.current = { x: e.clientX, y: e.clientY }
   }, [setOffset])

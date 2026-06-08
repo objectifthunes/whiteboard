@@ -14,8 +14,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: '',
-  secondary: 'secondary-btn',
-  danger: 'danger-btn',
+  secondary: 'wb-btn--secondary',
+  danger: 'wb-btn--danger',
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
@@ -24,6 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     fullWidth = false,
     iconOnly = false,
     loading = false,
+    type = 'button',
     disabled,
     className,
     children,
@@ -35,7 +36,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button
       ref={ref}
-      className={cn(variantClasses[variant], fullWidth && 'full-width-btn', iconOnly && 'icon-only-btn', className)}
+      type={type}
+      className={cn('wb-btn', variantClasses[variant], fullWidth && 'wb-btn--full-width', iconOnly && 'wb-btn--icon-only', className)}
       disabled={disabled || loading}
       {...props}
     >

@@ -10,6 +10,8 @@ interface Props {
   onConfirm: () => void
   onCancel: () => void
   confirmLabel?: string
+  /** Label shown on the confirm button while `loading` is true. Defaults to `${confirmLabel}…`. */
+  loadingLabel?: string
   loading?: boolean
   error?: string | null
 }
@@ -21,6 +23,7 @@ export function ConfirmDialog({
   onConfirm,
   onCancel,
   confirmLabel = 'Confirm',
+  loadingLabel,
   loading,
   error,
 }: Props) {
@@ -61,7 +64,7 @@ export function ConfirmDialog({
           </button>
           <button type="button" className="wb-btn wb-btn--danger" onClick={onConfirm} disabled={loading}>
             {loading ? (
-              'Deleting...'
+              loadingLabel ?? `${confirmLabel}…`
             ) : (
               <>
                 <Check size={14} />

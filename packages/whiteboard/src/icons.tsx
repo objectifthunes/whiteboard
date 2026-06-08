@@ -25,7 +25,6 @@ export function Plus({ size, ...props }: IconProps) {
 export function ScanSearch({ size, ...props }: IconProps) {
   return (
     <svg {...defaults(size)} {...props}>
-      <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z" fill="none" stroke="none" />
       <path d="M3 7V5a2 2 0 0 1 2-2h2" />
       <path d="M17 3h2a2 2 0 0 1 2 2v2" />
       <path d="M21 17v2a2 2 0 0 1-2 2h-2" />

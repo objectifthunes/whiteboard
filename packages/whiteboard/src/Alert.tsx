@@ -8,10 +8,10 @@ interface AlertProps extends HTMLAttributes<HTMLParagraphElement> {
 }
 
 const toneClasses: Record<AlertTone, string> = {
-  error: 'status-error',
-  muted: 'text-sm text-muted',
-  info: 'ui-alert ui-alert--info',
-  success: 'ui-alert ui-alert--success',
+  error: 'wb-alert wb-alert--error',
+  muted: 'wb-alert wb-alert--muted',
+  info: 'wb-alert wb-alert--info',
+  success: 'wb-alert wb-alert--success',
 }
 
 export function Alert({ tone = 'info', className, ...props }: AlertProps) {

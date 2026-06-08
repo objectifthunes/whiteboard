@@ -2,7 +2,7 @@ import type { HTMLAttributes, ReactNode } from 'react'
 import { cn } from './cn'
 import { SectionDescription, SectionTitle } from './Typography'
 
-interface PanelSectionProps extends HTMLAttributes<HTMLDivElement> {
+interface PanelSectionProps extends HTMLAttributes<HTMLElement> {
   heading?: ReactNode
   description?: ReactNode
   actions?: ReactNode

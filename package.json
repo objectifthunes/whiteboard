@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm --filter @objectifthunes/whiteboard build",
-    "dev": "pnpm --filter @objectifthunes/whiteboard build && pnpm --filter whiteboard-demo dev"
+    "dev": "pnpm --filter @objectifthunes/whiteboard dev",
+    "typecheck": "pnpm --filter @objectifthunes/whiteboard typecheck"
   }
 }

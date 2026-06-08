@@ -215,16 +215,17 @@ A portaled, accessible confirmation dialog. Closes on `Escape`, click outside, o
 />
 ```
 
-| Prop           | Type                | Default     | Description                                  |
-| -------------- | ------------------- | ----------- | -------------------------------------------- |
-| `open`         | `boolean`           | —           | Controls visibility.                         |
-| `title`        | `string`            | —           | Dialog title (also `aria-label`).            |
-| `message`      | `string`            | —           | Body text.                                   |
-| `confirmLabel` | `string`            | `'Confirm'` | Confirm button label.                        |
-| `loading`      | `boolean`           | `false`     | Disables confirm and shows `Deleting…`.      |
-| `error`        | `string \| null`    | —           | Inline error shown above the actions.        |
-| `onConfirm`    | `() => void`        | —           | Confirm handler.                             |
-| `onCancel`     | `() => void`        | —           | Cancel handler (also fires on Escape / backdrop). |
+| Prop           | Type                | Default            | Description                                  |
+| -------------- | ------------------- | ------------------ | -------------------------------------------- |
+| `open`         | `boolean`           | —                  | Controls visibility.                         |
+| `title`        | `string`            | —                  | Dialog title (also `aria-label`).            |
+| `message`      | `string`            | —                  | Body text.                                   |
+| `confirmLabel` | `string`            | `'Confirm'`        | Confirm button label.                        |
+| `loadingLabel` | `string`            | `'<confirmLabel>…'` | Confirm button label while `loading`.       |
+| `loading`     | `boolean`           | `false`            | Disables confirm and swaps to `loadingLabel`. |
+| `error`        | `string \| null`    | —                  | Inline error shown above the actions.        |
+| `onConfirm`    | `() => void`        | —                  | Confirm handler.                             |
+| `onCancel`     | `() => void`        | —                  | Cancel handler (also fires on Escape / backdrop). |
 
 ---
 
@@ -1157,19 +1158,23 @@ Theming uses CSS custom properties on `[data-theme]`. The built-in styles expose
 
 ```css
 :root {
-  --wb-bg: #ffffff;
-  --wb-fg: #0b0b0c;
-  --wb-muted: #6c6c70;
-  --wb-border: #e5e5e7;
-  --wb-accent: #2563eb;
+  --wb-bg: #f3f4f6;
+  --wb-surface: #ffffff;
+  --wb-text: #111827;
+  --wb-text-muted: #6b7280;
+  --wb-border: #e5e7eb;
+  --wb-primary: #1f2937;
+  --wb-danger: #dc2626;
   /* …and more — inspect dist/whiteboard.css for the full set */
 }
 
 [data-theme='dark'] {
-  --wb-bg: #0b0b0c;
-  --wb-fg: #f5f5f7;
-  --wb-muted: #9a9a9f;
-  --wb-border: #2a2a2c;
+  --wb-bg: #0f1117;
+  --wb-surface: #1a1d27;
+  --wb-text: #e5e7eb;
+  --wb-text-muted: #6b7280;
+  --wb-border: #2d3041;
+  --wb-primary: #e5e7eb;
 }
 ```
 
