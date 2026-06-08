@@ -73,8 +73,7 @@ export { ThemeToggle } from './ThemeToggle'
 export { TitleRow } from './TitleRow'
 export { VerticalToolbar } from './VerticalToolbar'
 export {
-  AssetTitle,
-  StoryTitle,
+  CardTitle,
   MutedText,
   PageTitle,
   SectionTitle,
@@ -82,9 +81,6 @@ export {
 } from './Typography'
 export {
   PanelFormSkeleton,
-  StoryCardSkeleton,
-  UserCardSkeleton,
-  UserListSkeleton,
-  AssetCardSkeleton,
+  CardSkeleton,
   PickerGridSkeleton,
 } from './WidgetSkeletons'

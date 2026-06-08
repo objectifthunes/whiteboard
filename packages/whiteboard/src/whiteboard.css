@@ -1,7 +1,7 @@
 /* ── CSS Custom Properties (light defaults) ──────────── */
 
 :root {
-  --wb-font-body: 'Segoe UI', sans-serif;
+  --wb-font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --wb-fs-2xs: 0.64rem;
   --wb-fs-xs: 0.68rem;
   --wb-fs-sm: 0.72rem;
@@ -839,15 +839,15 @@ button.chip:hover {
   align-items: start;
 }
 
-.split-layout--element {
+.split-layout--media-content {
   grid-template-columns: 84px minmax(0, 1fr);
 }
 
-.split-layout--character {
+.split-layout--single {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.split-layout--user {
+.split-layout--media-content-actions {
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: var(--wb-gap-lg);
@@ -926,22 +926,18 @@ button.chip:hover {
   font-size: var(--wb-fs-sm);
 }
 
-.asset-title {
+.card-title {
   font-size: var(--wb-fs-sm);
   font-weight: 600;
   word-break: break-word;
 }
 
-.asset-title--clamp {
+.card-title--clamp {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 2.1em;
-}
-
-.story-title {
-  font-size: 0.88rem;
 }
 
 .page-title {
@@ -1009,18 +1005,6 @@ button.chip:hover {
 .picker-grid {
   display: grid;
   gap: 0.4rem;
-}
-
-.picker-grid--elements {
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-}
-
-.picker-grid--characters {
-  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
-}
-
-.picker-grid--library {
-  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
 }
 
 .picker-card {
@@ -1319,8 +1303,8 @@ button.chip:hover {
     bottom: 4.9rem;
   }
 
-  .split-layout--element,
-  .split-layout--user {
+  .split-layout--media-content,
+  .split-layout--media-content-actions {
     grid-template-columns: 1fr;
   }
 }

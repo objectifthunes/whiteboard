@@ -1,12 +1,12 @@
 import type { HTMLAttributes } from 'react'
 import { cn } from './cn'
 
-type SplitLayoutVariant = 'element' | 'character' | 'user'
+type SplitLayoutVariant = 'media-content' | 'single' | 'media-content-actions'
 
 const variantClasses: Record<SplitLayoutVariant, string> = {
-  element: 'split-layout--element',
-  character: 'split-layout--character',
-  user: 'split-layout--user',
+  'media-content': 'split-layout--media-content',
+  'single': 'split-layout--single',
+  'media-content-actions': 'split-layout--media-content-actions',
 }
 
 interface SplitLayoutProps extends HTMLAttributes<HTMLDivElement> {
@@ -14,9 +14,11 @@ interface SplitLayoutProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * A two-column grid layout (image + content side-by-side).
- * Replaces `<div className="element-main">`, `<div className="character-main">`,
- * `<article className="user-row">`.
+ * Two- or three-column grid for media + content (+ actions) rows.
+ *
+ * - `media-content` — fixed media column + flexible content column.
+ * - `single` — one column (use as the small-screen fallback).
+ * - `media-content-actions` — auto media + flexible content + auto actions.
  */
 export function SplitLayout({ variant, className, ...props }: SplitLayoutProps) {
   return <div className={cn('split-layout', variantClasses[variant], className)} {...props} />

@@ -5,7 +5,7 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
   as?: ElementType
 }
 
-interface AssetTitleProps extends TypographyProps {
+interface CardTitleProps extends TypographyProps {
   clamp?: boolean
 }
 
@@ -17,23 +17,9 @@ const mutedSizeClasses: Record<MutedTextSize, string> = {
   md: '',
 }
 
-export function AssetTitle({ as = 'p', clamp = false, className, ...props }: AssetTitleProps) {
+export function CardTitle({ as = 'p', clamp = false, className, ...props }: CardTitleProps) {
   return createElement(as, {
-    className: cn('asset-title', clamp && 'asset-title--clamp', className),
-    ...props,
-  })
-}
-
-export function StoryTitle({ as = 'h3', className, ...props }: TypographyProps) {
-  return createElement(as, {
-    className: cn('story-title', className),
-    ...props,
-  })
-}
-
-export function MutedText({ as = 'p', size = 'sm', className, ...props }: TypographyProps & { size?: MutedTextSize }) {
-  return createElement(as, {
-    className: cn(mutedSizeClasses[size], 'text-muted', className),
+    className: cn('card-title', clamp && 'card-title--clamp', className),
     ...props,
   })
 }
@@ -55,6 +41,13 @@ export function SectionTitle({ as = 'span', className, ...props }: TypographyPro
 export function SectionDescription({ as = 'p', className, ...props }: TypographyProps) {
   return createElement(as, {
     className: cn('widget-section__description', className),
+    ...props,
+  })
+}
+
+export function MutedText({ as = 'p', size = 'sm', className, ...props }: TypographyProps & { size?: MutedTextSize }) {
+  return createElement(as, {
+    className: cn(mutedSizeClasses[size], 'text-muted', className),
     ...props,
   })
 }
