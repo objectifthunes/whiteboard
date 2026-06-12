@@ -20,6 +20,12 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime', 'zustand'],
+      output: {
+        // The whole kit is client-side UI; Vite strips module-level
+        // directives when bundling, so RSC consumers (Next layouts)
+        // need the banner or createContext explodes server-side.
+        banner: '"use client";',
+      },
       onwarn(warning, warn) {
         if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return
         warn(warning)
