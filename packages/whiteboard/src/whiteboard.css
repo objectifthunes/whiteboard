@@ -1360,7 +1360,7 @@ button.chip:hover {
   align-items: center;
   gap: var(--wb-gap-sm);
   transform: translateX(-50%);
-  padding: 0.34rem;
+  padding: 0.5rem;
   border: 1px solid var(--wb-border);
   border-radius: var(--wb-radius-lg);
   background: var(--wb-surface);
@@ -1598,4 +1598,29 @@ button.chip:hover {
   height: auto;
   align-self: stretch;
   min-height: 1rem;
+}
+
+/* .toolbar buttons read slightly larger than panel buttons */
+.toolbar .wb-btn {
+  padding: 0.45rem 0.72rem;
+  font-size: var(--wb-fs-md);
+}
+
+/* ── Draggable ───────────────────────────────────────────────────────── */
+.draggable {
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+
+.draggable--disabled {
+  cursor: inherit;
+}
+
+.draggable :where(button, input, select, textarea, canvas, a, label) {
+  cursor: auto;
+}
+
+.draggable :where(button, a, label, input[type='checkbox'], input[type='range']) {
+  cursor: pointer;
 }

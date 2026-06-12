@@ -68,6 +68,11 @@ Every component is driven by `--wb-*` CSS custom properties. Override on `:root`
 
 See the live demo for the full prop reference and copy-pasteable examples per component.
 
+## New in 0.5
+
+- **`Draggable` / `DraggableSurface`** — screen-space dragging for overlay chrome, no `WhiteboardShell` required. Keep your CSS anchoring; the drag is a `translate()` delta on top, so layouts stay responsive. Drags from any non-interactive area, snaps to the whiteboard grid on release, honours the global `whiteboard-snap-now` event, persists per `id` in localStorage. Double-click resets one element; `resetDraggables()` resets all.
+- `Toolbar` reads slightly larger (roomier padding, `--wb-fs-md` buttons) — it's app chrome, not a panel row.
+
 ## New in 0.4
 
 Battle-tested additions from building a real app on the kit:
