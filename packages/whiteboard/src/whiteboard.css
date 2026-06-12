@@ -1617,17 +1617,23 @@ button.chip:hover {
 }
 
 .toolbar .chip {
+  /* the document name is primary info, not a tag — give it presence
+     and a background that doesn't melt into the bar */
   font-size: var(--wb-fs-sm);
+  color: var(--wb-text-secondary);
+  background: var(--wb-surface-soft);
 }
 
-/* the vertical toolbar reads as app chrome too */
+/* the vertical toolbar reads as app chrome too — the GLYPHS carry the
+   size, not the padding */
 .vertical-toolbar {
-  padding: 0.45rem;
+  padding: 0.4rem;
 }
 
 .vertical-toolbar .wb-btn--icon-only {
-  padding: 0.55rem;
-  font-size: var(--wb-fs-md);
+  padding: 0.45rem;
+  font-size: var(--wb-fs-lg);
+  line-height: 1;
 }
 
 /* ── Draggable ───────────────────────────────────────────────────────── */
