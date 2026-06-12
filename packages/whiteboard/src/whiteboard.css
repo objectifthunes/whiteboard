@@ -1164,6 +1164,7 @@ button.chip:hover {
   align-items: center;
   gap: var(--wb-gap-sm);
   transform: translateY(-50%);
+  color: var(--wb-text);
   padding: 0.34rem;
   border: 1px solid var(--wb-border);
   border-radius: var(--wb-radius-lg);
@@ -1365,6 +1366,7 @@ button.chip:hover {
   border-radius: var(--wb-radius-lg);
   background: var(--wb-surface);
   box-shadow: var(--wb-shadow-soft);
+  color: var(--wb-text);
   white-space: nowrap;
 }
 
@@ -1653,4 +1655,18 @@ button.chip:hover {
 
 .draggable :where(button, a, label, input[type='checkbox'], input[type='range']) {
   cursor: pointer;
+}
+
+/* chrome icon buttons are exact squares regardless of glyph width */
+.toolbar .wb-btn--icon-only,
+.vertical-toolbar .wb-btn--icon-only {
+  width: 2.2rem;
+  height: 2.2rem;
+  min-width: 2.2rem;
+  padding: 0;
+  justify-content: center;
+}
+
+.toolbar .wb-btn--icon-only {
+  font-size: var(--wb-fs-md);
 }
