@@ -4,7 +4,7 @@ import { cn } from './cn'
 interface TooltipProps extends HTMLAttributes<HTMLSpanElement> {
   /** Bubble content. Keep it to a few words. */
   label: ReactNode
-  placement?: 'top' | 'bottom'
+  placement?: 'top' | 'bottom' | 'left' | 'right'
   children: ReactNode
 }
 
@@ -15,7 +15,13 @@ interface TooltipProps extends HTMLAttributes<HTMLSpanElement> {
 export function Tooltip({ label, placement = 'top', className, children, ...props }: TooltipProps) {
   return (
     <span
-      className={cn('tooltip', placement === 'bottom' && 'tooltip--bottom', className)}
+      className={cn(
+        'tooltip',
+        placement === 'bottom' && 'tooltip--bottom',
+        placement === 'left' && 'tooltip--left',
+        placement === 'right' && 'tooltip--right',
+        className
+      )}
       {...props}
     >
       {children}

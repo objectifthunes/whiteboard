@@ -1567,6 +1567,22 @@ button.chip:hover {
   top: calc(100% + 0.4rem);
 }
 
+.tooltip--right .tooltip__bubble,
+.tooltip--left .tooltip__bubble {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip--right .tooltip__bubble {
+  left: calc(100% + 0.4rem);
+}
+
+.tooltip--left .tooltip__bubble {
+  left: auto;
+  right: calc(100% + 0.4rem);
+}
+
 .tooltip:hover .tooltip__bubble,
 .tooltip:focus-within .tooltip__bubble {
   opacity: 1;
