@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react'
+import { useState, type InputHTMLAttributes, type ReactNode } from 'react'
 import { cn } from './cn'
 import { Field } from './Field'
 import { Input } from './Input'
@@ -12,9 +12,11 @@ interface NumberFieldProps
 }
 
 /**
- * Labeled numeric input. Values come back as numbers, clamped to
- * [min, max] when provided; non-numeric keystrokes are ignored rather
- * than emitted as NaN.
+ * Labeled numeric input. Emits in realtime while typing, but only
+ * MEANINGFUL numbers: an empty field, `0`, or unparseable input keeps
+ * the previous value (no snap-to-min while you clear and retype), and
+ * blurring an empty/invalid field restores the previous value visually.
+ * Valid values are clamped to [min, max].
  */
 export function NumberField({
   label,
@@ -28,6 +30,9 @@ export function NumberField({
   className,
   ...props
 }: NumberFieldProps) {
+  // While editing, the field shows the raw draft so intermediate states
+  // ("", "0", "0.") survive; when not editing it mirrors `value`.
+  const [draft, setDraft] = useState<string | null>(null)
   const clamp = (v: number) => {
     let out = v
     if (min !== undefined) out = Math.max(Number(min), out)
@@ -43,11 +48,16 @@ export function NumberField({
         min={min}
         max={max}
         step={step}
-        value={value}
+        value={draft ?? String(value)}
         onChange={(e) => {
-          const v = Number(e.target.value)
-          if (Number.isFinite(v)) onChange(clamp(v))
+          const raw = e.target.value
+          setDraft(raw)
+          if (raw.trim() === '') return
+          const v = Number(raw)
+          if (!Number.isFinite(v) || v === 0) return
+          onChange(clamp(v))
         }}
+        onBlur={() => setDraft(null)}
         {...props}
       />
     </Field>
