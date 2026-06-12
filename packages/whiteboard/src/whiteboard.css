@@ -1602,18 +1602,25 @@ button.chip:hover {
   min-height: 1rem;
 }
 
-/* .toolbar buttons read slightly larger than panel buttons */
+/* every control inside a toolbar shares ONE height — buttons, inputs,
+   icon buttons all sit on the same rhythm */
+.toolbar {
+  --wb-chrome-control: 2.2rem;
+}
+
 .toolbar .wb-btn {
-  padding: 0.45rem 0.72rem;
+  height: var(--wb-chrome-control);
+  padding: 0 0.72rem;
   font-size: var(--wb-fs-md);
 }
 
-/* inputs and chips inside a toolbar match the button rhythm */
 .toolbar input:not([type]),
 .toolbar input[type='text'],
 .toolbar input[type='number'],
 .toolbar input[type='search'] {
-  padding: 0.38rem 0.45rem;
+  height: var(--wb-chrome-control);
+  box-sizing: border-box;
+  padding: 0 0.5rem;
   font-size: var(--wb-fs-md);
   line-height: 1.2;
 }
@@ -1665,6 +1672,7 @@ button.chip:hover {
   min-width: 2.2rem;
   padding: 0;
   justify-content: center;
+  flex: none;
 }
 
 .toolbar .wb-btn--icon-only {
