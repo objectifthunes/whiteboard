@@ -1,6 +1,6 @@
 {
   "name": "@objectifthunes/whiteboard",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Pan/zoom whiteboard canvas with draggable panels, minimap, snap-to-grid, and zoom controls",
   "license": "MIT",
   "type": "module",

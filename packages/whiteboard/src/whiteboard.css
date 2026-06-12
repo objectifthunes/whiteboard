@@ -1694,3 +1694,46 @@ button.chip:hover {
 .toolbar .wb-btn--icon-only {
   font-size: var(--wb-fs-md);
 }
+
+/* ── unified chrome rhythm ─────────────────────────────────────────────
+   Toolbar and VerticalToolbar share identical metrics: one control
+   size, one padding, one gap — horizontal and vertical. Appended last
+   so it wins over the historical per-bar values. */
+.toolbar,
+.vertical-toolbar {
+  --wb-chrome-control: 2rem;
+  --wb-chrome-pad: 0.34rem;
+  --wb-chrome-gap: 0.34rem;
+  padding: var(--wb-chrome-pad);
+  gap: var(--wb-chrome-gap);
+}
+
+.toolbar__items,
+.toolbar__end,
+.vertical-toolbar__links {
+  gap: var(--wb-chrome-gap);
+}
+
+.toolbar__end {
+  margin-left: var(--wb-chrome-gap);
+}
+
+.toolbar .wb-btn {
+  height: var(--wb-chrome-control);
+  padding: 0 0.6rem;
+}
+
+.toolbar .wb-btn--icon-only,
+.vertical-toolbar .wb-btn--icon-only {
+  width: var(--wb-chrome-control);
+  height: var(--wb-chrome-control);
+  min-width: var(--wb-chrome-control);
+  padding: 0;
+}
+
+.toolbar input:not([type]),
+.toolbar input[type='text'],
+.toolbar input[type='number'],
+.toolbar input[type='search'] {
+  height: var(--wb-chrome-control);
+}
