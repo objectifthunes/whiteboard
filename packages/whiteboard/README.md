@@ -63,10 +63,22 @@ Every component is driven by `--wb-*` CSS custom properties. Override on `:root`
 
 - **Canvas:** `WhiteboardShell`, `FloatingPanel`, `Minimap`, `ZoomBar`, `ConfirmDialog`, `PanelErrorBoundary`
 - **Store / hooks:** `useWhiteboardStore`, `useWhiteboardLayout`, `computeWhiteboardFit`, `computeWhiteboardRectFocus`, `usePanelRect`, `belowPanel`, `snapToWhiteboardGrid`, `WHITEBOARD_GRID`, `cn`
-- **Primitives:** `Button`, `ButtonRow`, `PanelCloseButton`, `ThemeToggle`, `OverlayIconButton`, `Field`, `Label`, `Input`, `Textarea`, `Select`, `CoordGrid`, `CoordInput`, `Alert`, `Pill`, `Chip`, `TagRow`, `LoadingState`, `GeneratingOverlay`, `EmptyState`, `Stack`, `Inline`, `TitleRow`, `SplitLayout`, `IconText`, `PageShell`, `PageCard`, `PageTitle`, `CardTitle`, `SectionTitle`, `SectionDescription`, `MutedText`, `ItemCard`, `ItemList`, `List`, `PickerCard`, `PickerGrid`, `ChoiceCard`, `ChoiceGroup`, `VerticalToolbar`, `AvatarBadge`, `CanvasStage`, `ImageThumb`, `PanelSection`, `PanelTitle`
+- **Primitives:** `Button`, `ButtonRow`, `PanelCloseButton`, `ThemeToggle`, `OverlayIconButton`, `Field`, `Label`, `Input`, `Textarea`, `Select`, `CoordGrid`, `CoordInput`, `Alert`, `Pill`, `Chip`, `TagRow`, `LoadingState`, `GeneratingOverlay`, `EmptyState`, `Stack`, `Inline`, `TitleRow`, `SplitLayout`, `IconText`, `PageShell`, `PageCard`, `PageTitle`, `CardTitle`, `SectionTitle`, `SectionDescription`, `MutedText`, `ItemCard`, `ItemList`, `List`, `PickerCard`, `PickerGrid`, `ChoiceCard`, `ChoiceGroup`, `VerticalToolbar`, `AvatarBadge`, `CanvasStage`, `ImageThumb`, `PanelSection`, `PanelTitle`, `Checkbox`, `Switch`, `Slider`, `NumberField`, `Toolbar`, `Surface`, `Tooltip`, `Kbd`, `Divider`
 - **Skeletons:** `Skeleton`, `LineSkeleton`, `TitleSkeleton`, `ButtonSkeleton`, `IconButtonSkeleton`, `InputSkeleton`, `SelectSkeleton`, `TextareaSkeleton`, `ChipSkeleton`, `ThumbSkeleton`, `AvatarSkeleton`, `CanvasSkeleton`, `PanelFormSkeleton`, `CardSkeleton`, `PickerGridSkeleton`, `ChoiceGroupSkeleton`
 
 See the live demo for the full prop reference and copy-pasteable examples per component.
+
+## New in 0.4
+
+Battle-tested additions from building a real app on the kit:
+
+- **`Checkbox` / `Switch`** — labeled boolean rows; the input pins its own size so host globals can never stretch it.
+- **`Slider`** — label left, live readout right, themed range underneath. Returns numbers.
+- **`NumberField`** — labeled numeric input; clamps to min/max, never emits NaN.
+- **`Toolbar`** — horizontal sibling of `VerticalToolbar` for app-chrome bars (`position="top" | "bottom" | "static"`, `end` slot).
+- **`Surface`** — the plain floating overlay container (selection menus, legends, log panes) for overlays living outside a `WhiteboardShell`.
+- **`Tooltip`** — CSS-only, shows on hover and keyboard focus. `Kbd` for shortcut hints, `Divider` (h/v) for separation.
+- **Hardening** — `PickerCard` declares its own column layout (the global `button` style can no longer collapse it into a clipped row); native text/number inputs are now styled like `select` out of the box.
 
 ## Build size
 
