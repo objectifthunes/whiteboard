@@ -1606,6 +1606,30 @@ button.chip:hover {
   font-size: var(--wb-fs-md);
 }
 
+/* inputs and chips inside a toolbar match the button rhythm */
+.toolbar input:not([type]),
+.toolbar input[type='text'],
+.toolbar input[type='number'],
+.toolbar input[type='search'] {
+  padding: 0.38rem 0.45rem;
+  font-size: var(--wb-fs-md);
+  line-height: 1.2;
+}
+
+.toolbar .chip {
+  font-size: var(--wb-fs-sm);
+}
+
+/* the vertical toolbar reads as app chrome too */
+.vertical-toolbar {
+  padding: 0.45rem;
+}
+
+.vertical-toolbar .wb-btn--icon-only {
+  padding: 0.55rem;
+  font-size: var(--wb-fs-md);
+}
+
 /* ── Draggable ───────────────────────────────────────────────────────── */
 .draggable {
   cursor: grab;
